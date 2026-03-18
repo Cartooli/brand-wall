@@ -6,6 +6,13 @@ import { CATEGORIES } from "@/data/categories";
 import { useLocale } from "@/lib/i18n/context";
 import ShareButton from "@/components/ShareButton";
 
+export type SubmitBrandProps = {
+  /** When true, the form is expanded on mount (e.g. on /submit page). */
+  initialOpen?: boolean;
+  /** Pre-fill country (e.g. "georgia" from ?country=georgia). */
+  initialCountry?: string;
+};
+
 const inputBaseStyle: React.CSSProperties = {
   padding: "10px 14px",
   borderRadius: 8,
@@ -25,11 +32,17 @@ const selectStyle: React.CSSProperties = {
   WebkitAppearance: "none",
 };
 
-export default function SubmitBrand() {
+export default function SubmitBrand({ initialOpen, initialCountry }: SubmitBrandProps = {}) {
   const { t } = useLocale();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(!!initialOpen);
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", url: "", country: "", cat: "", desc: "" });
+  const [form, setForm] = useState({
+    name: "",
+    url: "",
+    country: initialCountry ?? "",
+    cat: "",
+    desc: "",
+  });
 
   if (submitted)
     return (

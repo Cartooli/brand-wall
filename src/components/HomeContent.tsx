@@ -248,6 +248,13 @@ export default function HomeContent({ initialCountry, initialBrand }: HomeConten
         >
           {t("landing", "footer_inspired")} &middot; {t("landing", "footer_pixel")} &middot;{" "}
           <a
+            href="/submit"
+            style={{ color: "#282828", textDecoration: "none" }}
+          >
+            {t("submit", "submit_brand_cta")}
+          </a>
+          {" · "}
+          <a
             href="/request-removal"
             style={{ color: "#282828", textDecoration: "none" }}
           >
