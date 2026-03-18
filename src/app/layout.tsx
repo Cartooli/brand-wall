@@ -25,9 +25,22 @@ const notoGeorgian = Noto_Sans_Georgian({
   display: "swap",
 });
 
+const canonicalBase = "https://www.brandwall.online";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(canonicalBase),
   title: "The Brand Wall",
   description: "A modernized Million Dollar Homepage. Every pixel block is an indie brand. Every URL path is a country.",
+  alternates: {
+    canonical: canonicalBase + "/",
+  },
+  openGraph: {
+    url: canonicalBase + "/",
+    siteName: "The Brand Wall",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
