@@ -90,8 +90,18 @@ export default function HomeContent({ initialCountry, initialBrand }: HomeConten
 
   const cellSize = 38;
 
+  // Pre-fill onboarding when user landed via /country/georgia (/?country=georgia)
+  const urlCountry = searchParams.get("country");
+  const initialOnboardingCountries =
+    urlCountry && VALID_COUNTRIES.has(urlCountry) ? [urlCountry] : undefined;
+
   if (showOnboarding) {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+    return (
+      <OnboardingFlow
+        onComplete={handleOnboardingComplete}
+        initialCountries={initialOnboardingCountries}
+      />
+    );
   }
 
   const countryCount = Object.keys(COUNTRIES).length;

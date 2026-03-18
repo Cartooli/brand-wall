@@ -50,18 +50,25 @@ const navBtnStyle: React.CSSProperties = {
 
 interface OnboardingFlowProps {
   onComplete: (answers: OnboardingAnswers) => void;
+  /** Pre-select when user landed via e.g. /country/georgia (/?country=georgia). */
+  initialCountries?: string[];
+  initialCategories?: string[];
 }
 
-export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
+export default function OnboardingFlow({
+  onComplete,
+  initialCountries = [],
+  initialCategories = [],
+}: OnboardingFlowProps) {
   const { t } = useLocale();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<OnboardingAnswers>({
-    countries: [],
-    categories: [],
+    countries: initialCountries,
+    categories: initialCategories,
     brandName: "",
     brandUrl: "",
     brandCat: "",
-    brandCountry: "",
+    brandCountry: initialCountries.length === 1 ? initialCountries[0] : "",
     brandDesc: "",
   });
   const [submittedBrand, setSubmittedBrand] = useState(false);
