@@ -94,10 +94,20 @@ export default function SubmitBrand() {
           color: "#666",
           textTransform: "uppercase",
           letterSpacing: "0.08em",
-          marginBottom: 14,
+          marginBottom: 6,
         }}
       >
         {t("submit", "add_brand")}
+      </div>
+      <div
+        style={{
+          fontFamily: "var(--font-dm-mono)",
+          fontSize: 10,
+          color: "#444",
+          marginBottom: 14,
+        }}
+      >
+        {t("submit", "removal_promise")}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         <div style={{ display: "flex", gap: 8 }}>

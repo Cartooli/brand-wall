@@ -51,7 +51,8 @@
     "submitted_for_curation": "submitted for curation",
     "submit_brand_cta": "+ Submit a brand to The Wall",
     "add_brand": "Add a brand",
-    "placeholder_pitch": "One-line pitch..."
+    "placeholder_pitch": "One-line pitch...",
+    "removal_promise": "You can request removal anytime — we process within 7 days."
   },
   "modal": {
     "visit": "Visit",
@@ -83,6 +84,27 @@
   "not_found": {
     "brand_message": "Brand not found.",
     "explore_country": "Explore {country}"
+  },
+  "removal": {
+    "title": "Request removal from The Wall",
+    "sla_copy": "We process verified requests within 7 business days. Your listing will be removed and the link will show that the brand is no longer listed.",
+    "label_brand": "Brand name",
+    "label_email": "Your email",
+    "label_reason": "Reason",
+    "optional": "optional",
+    "reason_placeholder": "e.g. Company closed, rebranded, or prefer not to be listed",
+    "submit": "Send request",
+    "sending": "Sending…",
+    "received_title": "Request received",
+    "received_body": "We’ll process your removal request within 7 business days. If we need to verify, we’ll contact you at the email you provided.",
+    "back_to_wall": "Back to The Wall",
+    "error_send": "Could not send request. Please try again or contact us directly.",
+    "select_country": "Select country",
+    "privacy_note": "We use your email only to process this request and to confirm removal. We don’t add you to any mailing list.",
+    "request_removal_link": "Request removal from the wall"
+  },
+  "footer": {
+    "request_removal": "Request removal"
   },
   "categories": {
     "Food & Bev": "Food & Bev",

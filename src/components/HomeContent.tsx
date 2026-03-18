@@ -247,6 +247,13 @@ export default function HomeContent({ initialCountry, initialBrand }: HomeConten
           }}
         >
           {t("landing", "footer_inspired")} &middot; {t("landing", "footer_pixel")} &middot;{" "}
+          <a
+            href="/request-removal"
+            style={{ color: "#282828", textDecoration: "none" }}
+          >
+            {t("footer", "request_removal")}
+          </a>
+          {" · "}
           {new Date().getFullYear()}
         </div>
       </div>

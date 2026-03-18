@@ -176,6 +176,22 @@ export default function BrandModal({ brand, onClose }: BrandModalProps) {
             />
           </div>
 
+          <div style={{ textAlign: "center", marginTop: 12 }}>
+            <a
+              href={`/request-removal?brand=${encodeURIComponent(brand.name)}&country=${encodeURIComponent(brand.country)}`}
+              style={{
+                fontFamily: "var(--font-dm-mono)",
+                fontSize: 9,
+                color: "#444",
+                textDecoration: "none",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+              }}
+            >
+              {t("removal", "request_removal_link")}
+            </a>
+          </div>
+
           <div
             style={{
               marginTop: 14,
