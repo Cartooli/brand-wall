@@ -3,6 +3,7 @@
 import { Brand } from "@/data/brands";
 import { COUNTRIES } from "@/data/countries";
 import { generateColor } from "@/data/utils";
+import { useLocale } from "@/lib/i18n/context";
 
 function Tag({ label, color }: { label: string; color: string }) {
   return (
@@ -31,9 +32,20 @@ interface BrandModalProps {
 }
 
 export default function BrandModal({ brand, onClose }: BrandModalProps) {
+  const { t } = useLocale();
+
   if (!brand) return null;
   const color = generateColor(brand.name, brand.cat);
   const countryData = COUNTRIES[brand.country];
+
+  const tierLabel =
+    brand.size === "xl"
+      ? t("modal", "tier_iconic")
+      : brand.size === "lg"
+        ? t("modal", "tier_rising")
+        : brand.size === "md"
+          ? t("modal", "tier_indie")
+          : t("modal", "tier_micro");
 
   return (
     <div
@@ -78,7 +90,7 @@ export default function BrandModal({ brand, onClose }: BrandModalProps) {
                   marginBottom: 6,
                 }}
               >
-                {countryData?.flag} {countryData?.nameEn} &middot; {brand.cat}
+                {countryData?.flag} {countryData?.nameEn} &middot; {t("categories", brand.cat)}
               </div>
               <div
                 style={{
@@ -126,9 +138,9 @@ export default function BrandModal({ brand, onClose }: BrandModalProps) {
           </p>
 
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
-            <Tag label={`Est. ${brand.year}`} color={color} />
-            <Tag label={brand.cat} color={color} />
-            <Tag label={brand.size === "xl" ? "Iconic" : brand.size === "lg" ? "Rising" : brand.size === "md" ? "Indie" : "Micro"} color={color} />
+            <Tag label={`${t("modal", "est")} ${brand.year}`} color={color} />
+            <Tag label={t("categories", brand.cat)} color={color} />
+            <Tag label={tierLabel} color={color} />
           </div>
 
           <a
@@ -150,7 +162,7 @@ export default function BrandModal({ brand, onClose }: BrandModalProps) {
               letterSpacing: "0.05em",
             }}
           >
-            Visit {brand.name} &rarr;
+            {t("modal", "visit")} {brand.name} &rarr;
           </a>
 
           <div
@@ -164,7 +176,7 @@ export default function BrandModal({ brand, onClose }: BrandModalProps) {
               letterSpacing: "0.12em",
             }}
           >
-            Pixel #{(brand.name.charCodeAt(0) * 1000 + brand.year).toLocaleString()} &middot; The Brand Wall
+            {t("modal", "pixel")} #{(brand.name.charCodeAt(0) * 1000 + brand.year).toLocaleString()} &middot; {t("common", "the_brand_wall")}
           </div>
         </div>
       </div>

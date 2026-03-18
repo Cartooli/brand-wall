@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Newsreader, DM_Mono } from "next/font/google";
+import { Newsreader, DM_Mono, Noto_Sans_Georgian } from "next/font/google";
+import { LocaleProvider } from "@/lib/i18n/context";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -17,6 +18,13 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
+const notoGeorgian = Noto_Sans_Georgian({
+  variable: "--font-georgian",
+  subsets: ["georgian"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "The Brand Wall",
   description: "A modernized Million Dollar Homepage. Every pixel block is an indie brand. Every URL path is a country.",
@@ -28,8 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${dmMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${newsreader.variable} ${dmMono.variable} ${notoGeorgian.variable}`}>
+      <body>
+        <LocaleProvider>{children}</LocaleProvider>
+      </body>
     </html>
   );
 }

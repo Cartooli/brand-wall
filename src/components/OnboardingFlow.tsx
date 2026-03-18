@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { COUNTRIES } from "@/data/countries";
 import { CATEGORIES } from "@/data/categories";
+import { useLocale } from "@/lib/i18n/context";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export interface OnboardingAnswers {
   countries: string[];
@@ -51,6 +53,7 @@ interface OnboardingFlowProps {
 }
 
 export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
+  const { t } = useLocale();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<OnboardingAnswers>({
     countries: [],
@@ -65,22 +68,22 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
 
   const steps = [
     {
-      title: "Choose your countries",
-      subtitle: "Which scenes are you most curious about?",
+      title: t("onboarding", "step1_title"),
+      subtitle: t("onboarding", "step1_subtitle"),
       type: "multi" as const,
       options: Object.entries(COUNTRIES).map(([k, v]) => ({ key: k, label: `${v.flag} ${v.nameEn}` })),
       field: "countries" as const,
     },
     {
-      title: "Pick your categories",
-      subtitle: "What do you care about most?",
+      title: t("onboarding", "step2_title"),
+      subtitle: t("onboarding", "step2_subtitle"),
       type: "multi" as const,
-      options: CATEGORIES.map((c) => ({ key: c, label: c })),
+      options: CATEGORIES.map((c) => ({ key: c, label: t("categories", c) })),
       field: "categories" as const,
     },
     {
-      title: "Submit your brand",
-      subtitle: "Know an indie brand that belongs on The Wall? Add it.",
+      title: t("onboarding", "step3_title"),
+      subtitle: t("onboarding", "step3_subtitle"),
       type: "submit" as const,
     },
   ];
@@ -107,6 +110,9 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
         padding: 20,
       }}
     >
+      <div style={{ position: "absolute", top: 20, right: 20 }}>
+        <LanguageSwitcher />
+      </div>
       <div style={{ maxWidth: 560, width: "100%", animation: "fadeIn 0.5s ease" }}>
         {/* Progress */}
         <div style={{ display: "flex", gap: 6, marginBottom: 40 }}>
@@ -183,14 +189,14 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
             <div style={{ display: "flex", gap: 10 }}>
               <input
                 type="text"
-                placeholder="Brand name"
+                placeholder={t("onboarding", "placeholder_brand_name")}
                 value={answers.brandName}
                 onChange={(e) => setAnswers((a) => ({ ...a, brandName: e.target.value }))}
                 style={inputBaseStyle}
               />
               <input
                 type="text"
-                placeholder="Website URL"
+                placeholder={t("onboarding", "placeholder_url")}
                 value={answers.brandUrl}
                 onChange={(e) => setAnswers((a) => ({ ...a, brandUrl: e.target.value }))}
                 style={inputBaseStyle}
@@ -202,7 +208,7 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
                 onChange={(e) => setAnswers((a) => ({ ...a, brandCountry: e.target.value }))}
                 style={selectStyle}
               >
-                <option value="">Country</option>
+                <option value="">{t("common", "country")}</option>
                 {Object.entries(COUNTRIES).map(([k, v]) => (
                   <option key={k} value={k}>
                     {v.flag} {v.nameEn}
@@ -214,16 +220,16 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
                 onChange={(e) => setAnswers((a) => ({ ...a, brandCat: e.target.value }))}
                 style={selectStyle}
               >
-                <option value="">Category</option>
+                <option value="">{t("common", "category")}</option>
                 {CATEGORIES.map((c) => (
                   <option key={c} value={c}>
-                    {c}
+                    {t("categories", c)}
                   </option>
                 ))}
               </select>
             </div>
             <textarea
-              placeholder="One-line pitch for this brand..."
+              placeholder={t("onboarding", "placeholder_pitch")}
               value={answers.brandDesc}
               onChange={(e) => setAnswers((a) => ({ ...a, brandDesc: e.target.value }))}
               style={{ ...inputBaseStyle, height: 60, resize: "none" }}
@@ -245,7 +251,7 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
                   letterSpacing: "0.05em",
                 }}
               >
-                Submit to The Wall &rarr;
+                {t("onboarding", "submit_to_wall")} &rarr;
               </button>
             )}
           </div>
@@ -262,10 +268,10 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
           >
             <div style={{ fontSize: 24, marginBottom: 8 }}>&#10022;</div>
             <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: 13, color: "#E4002B", fontWeight: 600 }}>
-              {answers.brandName} submitted!
+              {answers.brandName} {t("onboarding", "submitted")}
             </div>
             <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: 11, color: "#555", marginTop: 4 }}>
-              Our curation team will review and add it to The Wall.
+              {t("onboarding", "curation_review")}
             </div>
           </div>
         )}
@@ -280,11 +286,11 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
               cursor: step === 0 ? "default" : "pointer",
             }}
           >
-            &larr; Back
+            &larr; {t("common", "back")}
           </button>
           <div style={{ display: "flex", gap: 10 }}>
             <button onClick={() => onComplete(answers)} style={{ ...navBtnStyle, color: "#555" }}>
-              Skip
+              {t("common", "skip")}
             </button>
             <button
               onClick={() => {
@@ -298,7 +304,7 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
                 border: "1px solid #E4002B",
               }}
             >
-              {step === steps.length - 1 ? "Enter The Wall \u2192" : "Next \u2192"}
+              {step === steps.length - 1 ? `${t("onboarding", "enter_wall")} \u2192` : `${t("common", "next")} \u2192`}
             </button>
           </div>
         </div>

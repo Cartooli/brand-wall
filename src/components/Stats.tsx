@@ -1,6 +1,7 @@
 "use client";
 
 import { Brand, BRANDS } from "@/data/brands";
+import { useLocale } from "@/lib/i18n/context";
 
 interface StatsProps {
   brands: (Brand & { country: string })[];
@@ -8,6 +9,7 @@ interface StatsProps {
 }
 
 export default function Stats({ brands, country }: StatsProps) {
+  const { t } = useLocale();
   const totalBrands = brands.length;
   const categories = [...new Set(brands.map((b) => b.cat))].length;
   const countries = country === "all" ? Object.keys(BRANDS).length : 1;
@@ -23,10 +25,10 @@ export default function Stats({ brands, country }: StatsProps) {
       }}
     >
       {[
-        { label: "Brands", value: totalBrands },
-        { label: "Categories", value: categories },
-        { label: "Countries", value: countries },
-        { label: "Pixels", value: (totalBrands * 247).toLocaleString() },
+        { label: t("stats", "brands"), value: totalBrands },
+        { label: t("stats", "categories"), value: categories },
+        { label: t("stats", "countries"), value: countries },
+        { label: t("stats", "pixels"), value: (totalBrands * 247).toLocaleString() },
       ].map((s) => (
         <div key={s.label}>
           <div style={{ fontFamily: "var(--font-newsreader)", fontSize: 22, color: "#fff", lineHeight: 1 }}>

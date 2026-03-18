@@ -1,6 +1,7 @@
 "use client";
 
 import { CATEGORIES, CAT_COLORS } from "@/data/categories";
+import { useLocale } from "@/lib/i18n/context";
 
 function FilterChip({
   label,
@@ -42,11 +43,13 @@ interface FilterBarProps {
 }
 
 export default function FilterBar({ activeCat, onSelect }: FilterBarProps) {
+  const { t } = useLocale();
+
   return (
     <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
-      <FilterChip label="All" active={activeCat === "all"} color="#fff" onClick={() => onSelect("all")} />
+      <FilterChip label={t("common", "all")} active={activeCat === "all"} color="#fff" onClick={() => onSelect("all")} />
       {CATEGORIES.map((cat) => (
-        <FilterChip key={cat} label={cat} active={activeCat === cat} color={CAT_COLORS[cat]} onClick={() => onSelect(cat)} />
+        <FilterChip key={cat} label={t("categories", cat)} active={activeCat === cat} color={CAT_COLORS[cat]} onClick={() => onSelect(cat)} />
       ))}
     </div>
   );

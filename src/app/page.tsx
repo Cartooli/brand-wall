@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { Brand, BRANDS, SIZE_MAP } from "@/data/brands";
 import { COUNTRIES } from "@/data/countries";
+import { useLocale } from "@/lib/i18n/context";
 import OnboardingFlow, { OnboardingAnswers } from "@/components/OnboardingFlow";
 import CountryNav from "@/components/CountryNav";
 import FilterBar from "@/components/FilterBar";
@@ -12,10 +13,12 @@ import BrandModal from "@/components/BrandModal";
 import Stats from "@/components/Stats";
 import URLBar from "@/components/URLBar";
 import SubmitBrand from "@/components/SubmitBrand";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 type BrandWithCountry = Brand & { country: string };
 
 export default function Home() {
+  const { t } = useLocale();
   const [showOnboarding, setShowOnboarding] = useState(true);
   const [activeCountry, setActiveCountry] = useState("all");
   const [activeCat, setActiveCat] = useState("all");
@@ -52,33 +55,39 @@ export default function Home() {
     return <OnboardingFlow onComplete={handleOnboardingComplete} />;
   }
 
+  const countryCount = Object.keys(COUNTRIES).length;
+  const brandCount = Object.values(BRANDS).flat().length;
+
   return (
     <div style={{ minHeight: "100vh", background: "#050508", color: "#fff" }}>
       <div style={{ padding: "32px 24px 0", maxWidth: 1200, margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
-          <div
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: "50%",
-              background: "#06D6A0",
-              animation: "pulseGlow 2s ease infinite",
-              boxShadow: "0 0 10px #06D6A066",
-            }}
-          />
-          <span
-            style={{
-              fontFamily: "var(--font-dm-mono)",
-              fontSize: 9,
-              textTransform: "uppercase",
-              letterSpacing: "0.15em",
-              color: "#06D6A0",
-            }}
-          >
-            Live &middot; {Object.values(BRANDS).flat().length} brands indexed &middot;{" "}
-            {Object.keys(COUNTRIES).length} countries
-          </span>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: "50%",
+                background: "#06D6A0",
+                animation: "pulseGlow 2s ease infinite",
+                boxShadow: "0 0 10px #06D6A066",
+              }}
+            />
+            <span
+              style={{
+                fontFamily: "var(--font-dm-mono)",
+                fontSize: 9,
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                color: "#06D6A0",
+              }}
+            >
+              {t("landing", "live")} &middot; {brandCount} {t("landing", "brands_indexed")} &middot;{" "}
+              {countryCount} {t("landing", "countries")}
+            </span>
+          </div>
+          <LanguageSwitcher />
         </div>
 
         <h1
@@ -92,7 +101,7 @@ export default function Home() {
             marginBottom: 8,
           }}
         >
-          The Brand Wall
+          {t("landing", "title")}
         </h1>
         <p
           style={{
@@ -104,8 +113,7 @@ export default function Home() {
             marginBottom: 24,
           }}
         >
-          A pixel mosaic of indie brands from {Object.keys(COUNTRIES).length} countries. Every block is a brand. Every
-          path is a country. Click to explore.
+          {t("landing", "subtitle").replace("{count}", String(countryCount))}
         </p>
 
         <URLBar activeCountry={activeCountry} />
@@ -118,7 +126,7 @@ export default function Home() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search..."
+            placeholder={t("common", "search")}
             style={{
               padding: "10px 14px",
               borderRadius: 8,
@@ -153,7 +161,7 @@ export default function Home() {
               fontSize: 13,
             }}
           >
-            No brands found. Try a different filter or submit one below.
+            {t("landing", "no_brands")}
           </div>
         ) : (
           <div
@@ -191,7 +199,7 @@ export default function Home() {
             letterSpacing: "0.15em",
           }}
         >
-          Inspired by The Million Dollar Homepage (2005) &middot; Every pixel tells a story &middot;{" "}
+          {t("landing", "footer_inspired")} &middot; {t("landing", "footer_pixel")} &middot;{" "}
           {new Date().getFullYear()}
         </div>
       </div>

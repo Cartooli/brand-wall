@@ -1,10 +1,20 @@
 "use client";
 
+import { useLocale } from "@/lib/i18n/context";
+
 interface GeorgiaHeroProps {
   onExplore: () => void;
 }
 
 export default function GeorgiaHero({ onExplore }: GeorgiaHeroProps) {
+  const { t } = useLocale();
+
+  const stats = [
+    { n: "24", l: t("georgia", "stat_brands") },
+    { n: "$180M", l: t("georgia", "stat_vc") },
+    { n: "1,500+", l: t("georgia", "stat_startups") },
+  ];
+
   return (
     <div
       style={{
@@ -49,7 +59,7 @@ export default function GeorgiaHero({ onExplore }: GeorgiaHeroProps) {
               color: "#E4002B",
             }}
           >
-            Featured Country &middot; {"\u10E1\u10D0\u10E5\u10D0\u10E0\u10D7\u10D5\u10D4\u10DA\u10DD"}
+            {t("georgia", "featured_country")} &middot; {"\u10E1\u10D0\u10E5\u10D0\u10E0\u10D7\u10D5\u10D4\u10DA\u10DD"}
           </span>
         </div>
 
@@ -66,7 +76,7 @@ export default function GeorgiaHero({ onExplore }: GeorgiaHeroProps) {
                 marginBottom: 10,
               }}
             >
-              <span style={{ color: "#E4002B" }}>Georgia</span> {"\u{1F1EC}\u{1F1EA}"}
+              <span style={{ color: "#E4002B" }}>{t("georgia", "georgia")}</span> {"\u{1F1EC}\u{1F1EA}"}
             </div>
             <p
               style={{
@@ -77,17 +87,12 @@ export default function GeorgiaHero({ onExplore }: GeorgiaHeroProps) {
                 maxWidth: 420,
               }}
             >
-              8,000 years of winemaking. Tbilisi&apos;s tech ecosystem raised a record $180M in 2024. From qvevri cellars to
-              crash-game unicorns &mdash; the Caucasus is building.
+              {t("georgia", "description")}
             </p>
           </div>
 
           <div style={{ display: "flex", gap: 16 }}>
-            {[
-              { n: "24", l: "Brands" },
-              { n: "$180M", l: "VC 2024" },
-              { n: "1,500+", l: "Startups" },
-            ].map((s) => (
+            {stats.map((s) => (
               <div key={s.l} style={{ textAlign: "center" }}>
                 <div
                   style={{
@@ -134,7 +139,7 @@ export default function GeorgiaHero({ onExplore }: GeorgiaHeroProps) {
             transition: "all 0.2s",
           }}
         >
-          Explore /country/georgia &rarr;
+          {t("georgia", "explore_cta")} &rarr;
         </button>
       </div>
     </div>

@@ -1,0 +1,84 @@
+{
+  "common": {
+    "all": "ყველა",
+    "search": "ძიება...",
+    "country": "ქვეყანა",
+    "category": "კატეგორია",
+    "brand_name": "ბრენდის სახელი",
+    "cancel": "გაუქმება",
+    "submit": "გაგზავნა",
+    "skip": "გამოტოვება",
+    "back": "უკან",
+    "next": "შემდეგი",
+    "url": "URL",
+    "the_brand_wall": "The Brand Wall"
+  },
+  "landing": {
+    "live": "პირდაპირ",
+    "brands_indexed": "ბრენდი ინდექსირებულია",
+    "countries": "ქვეყანა",
+    "title": "The Brand Wall",
+    "subtitle": "{count} ქვეყნის ინდი ბრენდების პიქსელური მოზაიკა. ყოველი ბლოკი ბრენდია. ყოველი გზა ქვეყანაა. დააწკაპუნეთ საძიებლად.",
+    "no_brands": "ბრენდები ვერ მოიძებნა. სცადეთ სხვა ფილტრი ან გამოაგზავნეთ ახალი ქვემოთ.",
+    "footer_inspired": "შთაგონებულია The Million Dollar Homepage-ით (2005)",
+    "footer_pixel": "ყოველი პიქსელი ისტორიას ყვება"
+  },
+  "onboarding": {
+    "step1_title": "აირჩიეთ ქვეყნები",
+    "step1_subtitle": "რომელი სცენები გაინტერესებთ ყველაზე მეტად?",
+    "step2_title": "აირჩიეთ კატეგორიები",
+    "step2_subtitle": "რა გაინტერესებთ ყველაზე მეტად?",
+    "step3_title": "გამოაგზავნეთ თქვენი ბრენდი",
+    "step3_subtitle": "იცნობთ ინდი ბრენდს, რომელიც The Wall-ზე უნდა იყოს? დაამატეთ.",
+    "placeholder_brand_name": "ბრენდის სახელი",
+    "placeholder_url": "ვებსაიტის URL",
+    "placeholder_pitch": "ერთი წინადადებით აღწერეთ ბრენდი...",
+    "submit_to_wall": "გაგზავნეთ The Wall-ზე",
+    "submitted": "გამოგზავნილია!",
+    "curation_review": "ჩვენი კურატორთა გუნდი განიხილავს და დაამატებს The Wall-ზე.",
+    "enter_wall": "შესვლა The Wall-ში"
+  },
+  "georgia": {
+    "featured_country": "გამორჩეული ქვეყანა",
+    "georgia": "საქართველო",
+    "description": "8,000 წლიანი მეღვინეობის ისტორია. თბილისის ტექ-ეკოსისტემამ 2024 წელს რეკორდული $180M მოიზიდა. ქვევრის მარნებიდან gaming უნიკორნებამდე — კავკასია აშენებს.",
+    "stat_brands": "ბრენდი",
+    "stat_vc": "VC 2024",
+    "stat_startups": "სტარტაპი",
+    "explore_cta": "გამოიკვლიეთ /country/georgia"
+  },
+  "submit": {
+    "submitted_for_curation": "გამოგზავნილია კურაციისთვის",
+    "submit_brand_cta": "+ გამოაგზავნეთ ბრენდი The Wall-ზე",
+    "add_brand": "ბრენდის დამატება",
+    "placeholder_pitch": "ერთი წინადადებით..."
+  },
+  "modal": {
+    "visit": "ეწვიეთ",
+    "pixel": "პიქსელი",
+    "est": "დაფ.",
+    "tier_iconic": "ლეგენდა",
+    "tier_rising": "მზარდი",
+    "tier_indie": "ინდი",
+    "tier_micro": "მიკრო"
+  },
+  "stats": {
+    "brands": "ბრენდები",
+    "categories": "კატეგორიები",
+    "countries": "ქვეყნები",
+    "pixels": "პიქსელები"
+  },
+  "categories": {
+    "Food & Bev": "საკვები და სასმელი",
+    "Fashion": "მოდა",
+    "Tech": "ტექნოლოგია",
+    "Wellness": "ველნესი",
+    "Home": "სახლი",
+    "Beauty": "სილამაზე",
+    "Art": "ხელოვნება",
+    "Music": "მუსიკა",
+    "Sports": "სპორტი",
+    "Pets": "შინაური ცხოველები",
+    "Gaming": "გეიმინგი"
+  }
+}

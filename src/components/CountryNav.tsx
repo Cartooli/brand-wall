@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { COUNTRIES } from "@/data/countries";
+import { useLocale } from "@/lib/i18n/context";
 
 function NavBtn({
   label,
@@ -48,6 +49,8 @@ interface CountryNavProps {
 }
 
 export default function CountryNav({ activeCountry, onSelect }: CountryNavProps) {
+  const { t } = useLocale();
+
   return (
     <div
       style={{
@@ -58,7 +61,7 @@ export default function CountryNav({ activeCountry, onSelect }: CountryNavProps)
         scrollbarWidth: "none",
       }}
     >
-      <NavBtn label="\u{1F30D} All" active={activeCountry === "all"} accent="#fff" onClick={() => onSelect("all")} />
+      <NavBtn label={`\u{1F30D} ${t("common", "all")}`} active={activeCountry === "all"} accent="#fff" onClick={() => onSelect("all")} />
       <NavBtn
         label="\u{1F1EC}\u{1F1EA} GEO"
         active={activeCountry === "georgia"}

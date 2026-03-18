@@ -1,0 +1,84 @@
+{
+  "common": {
+    "all": "All",
+    "search": "Search...",
+    "country": "Country",
+    "category": "Category",
+    "brand_name": "Brand name",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "skip": "Skip",
+    "back": "Back",
+    "next": "Next",
+    "url": "URL",
+    "the_brand_wall": "The Brand Wall"
+  },
+  "landing": {
+    "live": "Live",
+    "brands_indexed": "brands indexed",
+    "countries": "countries",
+    "title": "The Brand Wall",
+    "subtitle": "A pixel mosaic of indie brands from {count} countries. Every block is a brand. Every path is a country. Click to explore.",
+    "no_brands": "No brands found. Try a different filter or submit one below.",
+    "footer_inspired": "Inspired by The Million Dollar Homepage (2005)",
+    "footer_pixel": "Every pixel tells a story"
+  },
+  "onboarding": {
+    "step1_title": "Choose your countries",
+    "step1_subtitle": "Which scenes are you most curious about?",
+    "step2_title": "Pick your categories",
+    "step2_subtitle": "What do you care about most?",
+    "step3_title": "Submit your brand",
+    "step3_subtitle": "Know an indie brand that belongs on The Wall? Add it.",
+    "placeholder_brand_name": "Brand name",
+    "placeholder_url": "Website URL",
+    "placeholder_pitch": "One-line pitch for this brand...",
+    "submit_to_wall": "Submit to The Wall",
+    "submitted": "submitted!",
+    "curation_review": "Our curation team will review and add it to The Wall.",
+    "enter_wall": "Enter The Wall"
+  },
+  "georgia": {
+    "featured_country": "Featured Country",
+    "georgia": "Georgia",
+    "description": "8,000 years of winemaking. Tbilisi's tech ecosystem raised a record $180M in 2024. From qvevri cellars to crash-game unicorns — the Caucasus is building.",
+    "stat_brands": "Brands",
+    "stat_vc": "VC 2024",
+    "stat_startups": "Startups",
+    "explore_cta": "Explore /country/georgia"
+  },
+  "submit": {
+    "submitted_for_curation": "submitted for curation",
+    "submit_brand_cta": "+ Submit a brand to The Wall",
+    "add_brand": "Add a brand",
+    "placeholder_pitch": "One-line pitch..."
+  },
+  "modal": {
+    "visit": "Visit",
+    "pixel": "Pixel",
+    "est": "Est.",
+    "tier_iconic": "Iconic",
+    "tier_rising": "Rising",
+    "tier_indie": "Indie",
+    "tier_micro": "Micro"
+  },
+  "stats": {
+    "brands": "Brands",
+    "categories": "Categories",
+    "countries": "Countries",
+    "pixels": "Pixels"
+  },
+  "categories": {
+    "Food & Bev": "Food & Bev",
+    "Fashion": "Fashion",
+    "Tech": "Tech",
+    "Wellness": "Wellness",
+    "Home": "Home",
+    "Beauty": "Beauty",
+    "Art": "Art",
+    "Music": "Music",
+    "Sports": "Sports",
+    "Pets": "Pets",
+    "Gaming": "Gaming"
+  }
+}

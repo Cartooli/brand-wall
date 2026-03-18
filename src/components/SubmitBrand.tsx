@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { COUNTRIES } from "@/data/countries";
 import { CATEGORIES } from "@/data/categories";
+import { useLocale } from "@/lib/i18n/context";
 
 const inputBaseStyle: React.CSSProperties = {
   padding: "10px 14px",
@@ -24,6 +25,7 @@ const selectStyle: React.CSSProperties = {
 };
 
 export default function SubmitBrand() {
+  const { t } = useLocale();
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", url: "", country: "", cat: "", desc: "" });
@@ -40,7 +42,7 @@ export default function SubmitBrand() {
         }}
       >
         <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: 12, color: "#E4002B" }}>
-          &#10022; {form.name} submitted for curation
+          &#10022; {form.name} {t("submit", "submitted_for_curation")}
         </div>
       </div>
     );
@@ -63,7 +65,7 @@ export default function SubmitBrand() {
           textAlign: "center",
         }}
       >
-        + Submit a brand to The Wall
+        {t("submit", "submit_brand_cta")}
       </button>
     );
 
@@ -86,20 +88,20 @@ export default function SubmitBrand() {
           marginBottom: 14,
         }}
       >
-        Add a brand
+        {t("submit", "add_brand")}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         <div style={{ display: "flex", gap: 8 }}>
           <input
             type="text"
-            placeholder="Brand name"
+            placeholder={t("common", "brand_name")}
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
             style={inputBaseStyle}
           />
           <input
             type="text"
-            placeholder="URL"
+            placeholder={t("common", "url")}
             value={form.url}
             onChange={(e) => setForm((f) => ({ ...f, url: e.target.value }))}
             style={inputBaseStyle}
@@ -111,7 +113,7 @@ export default function SubmitBrand() {
             onChange={(e) => setForm((f) => ({ ...f, country: e.target.value }))}
             style={selectStyle}
           >
-            <option value="">Country</option>
+            <option value="">{t("common", "country")}</option>
             {Object.entries(COUNTRIES).map(([k, v]) => (
               <option key={k} value={k}>
                 {v.flag} {v.nameEn}
@@ -123,16 +125,16 @@ export default function SubmitBrand() {
             onChange={(e) => setForm((f) => ({ ...f, cat: e.target.value }))}
             style={selectStyle}
           >
-            <option value="">Category</option>
+            <option value="">{t("common", "category")}</option>
             {CATEGORIES.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {t("categories", c)}
               </option>
             ))}
           </select>
         </div>
         <textarea
-          placeholder="One-line pitch..."
+          placeholder={t("submit", "placeholder_pitch")}
           value={form.desc}
           onChange={(e) => setForm((f) => ({ ...f, desc: e.target.value }))}
           style={{ ...inputBaseStyle, height: 48, resize: "none" }}
@@ -152,7 +154,7 @@ export default function SubmitBrand() {
               cursor: "pointer",
             }}
           >
-            Cancel
+            {t("common", "cancel")}
           </button>
           {form.name && (
             <button
@@ -169,7 +171,7 @@ export default function SubmitBrand() {
                 cursor: "pointer",
               }}
             >
-              Submit &rarr;
+              {t("common", "submit")} &rarr;
             </button>
           )}
         </div>
