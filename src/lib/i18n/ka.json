@@ -80,6 +80,10 @@
     "countries": "ქვეყნები",
     "pixels": "პიქსელები"
   },
+  "not_found": {
+    "brand_message": "ბრენდი ვერ მოიძებნა.",
+    "explore_country": "გამოიკვლიეთ {country}"
+  },
   "categories": {
     "Food & Bev": "საკვები და სასმელი",
     "Fashion": "მოდა",

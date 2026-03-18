@@ -80,6 +80,10 @@
     "countries": "Countries",
     "pixels": "Pixels"
   },
+  "not_found": {
+    "brand_message": "Brand not found.",
+    "explore_country": "Explore {country}"
+  },
   "categories": {
     "Food & Bev": "Food & Bev",
     "Fashion": "Fashion",
