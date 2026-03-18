@@ -61,9 +61,9 @@ export default function CountryNav({ activeCountry, onSelect }: CountryNavProps)
         scrollbarWidth: "none",
       }}
     >
-      <NavBtn label={`\u{1F30D} ${t("common", "all")}`} active={activeCountry === "all"} accent="#fff" onClick={() => onSelect("all")} />
+      <NavBtn label={`🌍 ${t("common", "all")}`} active={activeCountry === "all"} accent="#fff" onClick={() => onSelect("all")} />
       <NavBtn
-        label="\u{1F1EC}\u{1F1EA} GEO"
+        label={`${COUNTRIES.georgia.flag} GEO`}
         active={activeCountry === "georgia"}
         accent="#E4002B"
         onClick={() => onSelect("georgia")}
