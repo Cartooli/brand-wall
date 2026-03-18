@@ -23,7 +23,7 @@ export default function URLBar({ activeCountry }: URLBarProps) {
       }}
     >
       <span style={{ color: "#333", fontSize: 13 }}>&#x1F512;</span>
-      <span style={{ color: "#444", fontSize: 12 }}>brandwall.xyz</span>
+      <span style={{ color: "#444", fontSize: 12 }}>www.brandwall.online</span>
       <span style={{ color: "#222" }}>/</span>
       <span
         style={{
