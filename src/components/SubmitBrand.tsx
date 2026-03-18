@@ -36,6 +36,7 @@ export default function SubmitBrand({ initialOpen, initialCountry }: SubmitBrand
   const { t } = useLocale();
   const [open, setOpen] = useState(!!initialOpen);
   const [submitted, setSubmitted] = useState(false);
+  const [ctaHovered, setCtaHovered] = useState(false);
   const [form, setForm] = useState({
     name: "",
     url: "",
@@ -53,10 +54,21 @@ export default function SubmitBrand({ initialOpen, initialCountry }: SubmitBrand
           border: "1px dashed #E4002B33",
           background: "#E4002B06",
           textAlign: "center",
+          animation: "successScaleIn 0.35s cubic-bezier(.4,0,.2,1)",
         }}
       >
         <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: 12, color: "#E4002B" }}>
           &#10022; {form.name} {t("submit", "submitted_for_curation")}
+        </div>
+        <div
+          style={{
+            fontFamily: "var(--font-dm-mono)",
+            fontSize: 11,
+            color: "#888",
+            marginTop: 8,
+          }}
+        >
+          {t("submit", "success_check_back").replace("{name}", form.name)}
         </div>
         <div style={{ marginTop: 14, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 8 }}>
           <ShareButton
@@ -71,24 +83,40 @@ export default function SubmitBrand({ initialOpen, initialCountry }: SubmitBrand
 
   if (!open)
     return (
-      <button
-        onClick={() => setOpen(true)}
-        style={{
-          width: "100%",
-          padding: 20,
-          borderRadius: 12,
-          border: "1px dashed #222",
-          background: "#0a0a0a",
-          color: "#444",
-          fontFamily: "var(--font-dm-mono)",
-          fontSize: 12,
-          cursor: "pointer",
-          transition: "all 0.2s",
-          textAlign: "center",
-        }}
-      >
-        {t("submit", "submit_brand_cta")}
-      </button>
+      <div>
+        <button
+          onClick={() => setOpen(true)}
+          onMouseEnter={() => setCtaHovered(true)}
+          onMouseLeave={() => setCtaHovered(false)}
+          style={{
+            width: "100%",
+            padding: 20,
+            borderRadius: 12,
+            border: ctaHovered ? "1px dashed #333" : "1px dashed #222",
+            background: ctaHovered ? "#0c0c0c" : "#0a0a0a",
+            color: ctaHovered ? "#555" : "#444",
+            fontFamily: "var(--font-dm-mono)",
+            fontSize: 12,
+            cursor: "pointer",
+            transition: "all 0.2s",
+            textAlign: "center",
+            boxShadow: ctaHovered ? "0 0 0 1px #1a1a1a" : "none",
+          }}
+        >
+          {t("submit", "submit_brand_cta")}
+        </button>
+        <div
+          style={{
+            fontFamily: "var(--font-dm-mono)",
+            fontSize: 10,
+            color: "#333",
+            marginTop: 8,
+            textAlign: "center",
+          }}
+        >
+          {t("submit", "cta_subtext")}
+        </div>
+      </div>
     );
 
   return (

@@ -13,6 +13,7 @@
     "url": "URL",
     "the_brand_wall": "The Brand Wall",
     "loading": "Loading…",
+    "loading_building": "Building your wall…",
     "explore": "explore"
   },
   "landing": {
@@ -22,6 +23,7 @@
     "title": "The Brand Wall",
     "subtitle": "A pixel mosaic of indie brands from {count} countries. Every block is a brand. Every path is a country. Click to explore.",
     "no_brands": "No brands found. Try a different filter or submit one below.",
+    "no_brands_or_first": "Or be the first for this country or category — submit yours.",
     "footer_inspired": "Inspired by The Million Dollar Homepage (2005)",
     "footer_pixel": "Every pixel tells a story"
   },
@@ -38,7 +40,8 @@
     "submit_to_wall": "Submit to The Wall",
     "submitted": "submitted!",
     "curation_review": "Our curation team will review and add it to The Wall.",
-    "enter_wall": "Enter The Wall"
+    "enter_wall": "Enter The Wall",
+    "step3_good_company": "You'll be in good company — we'll review and add it to the mosaic."
   },
   "georgia": {
     "featured_country": "Featured Country",
@@ -54,7 +57,9 @@
     "submit_brand_cta": "+ Submit a brand to The Wall",
     "add_brand": "Add a brand",
     "placeholder_pitch": "One-line pitch...",
-    "removal_promise": "You can request removal anytime — we process within 7 days."
+    "removal_promise": "You can request removal anytime — we process within 7 days.",
+    "cta_subtext": "Takes 30 seconds. No account needed.",
+    "success_check_back": "We'll add it after a quick look. Check back in a few days to see {name} on the wall."
   },
   "modal": {
     "visit": "Visit",
@@ -70,6 +75,7 @@
     "share": "Share",
     "copy_link": "Copy link",
     "link_copied": "Link copied",
+    "url_copied": "Link copied",
     "share_georgia": "Share Georgia's wall",
     "share_georgia_text": "Explore 24+ indie brands from Georgia 🇬🇪 — from Spribe to Binekhi — on The Brand Wall.",
     "share_brand_text": "Check out {name} on The Brand Wall — indie brands from around the world.",

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { COUNTRIES } from "@/data/countries";
 import { useLocale } from "@/lib/i18n/context";
 
@@ -9,11 +10,24 @@ interface URLBarProps {
 
 export default function URLBar({ activeCountry }: URLBarProps) {
   const { t } = useLocale();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    if (typeof window === "undefined") return;
+    const url = window.location.href;
+    navigator.clipboard?.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   return (
-    <div
+    <button
+      type="button"
+      onClick={handleCopy}
       style={{
-        background: "#0c0c0c",
-        border: "1px solid #1a1a1a",
+        background: copied ? "#0a1a0a" : "#0c0c0c",
+        border: copied ? "1px solid #06D6A033" : "1px solid #1a1a1a",
         borderRadius: 10,
         padding: "10px 16px",
         display: "flex",
@@ -22,6 +36,10 @@ export default function URLBar({ activeCountry }: URLBarProps) {
         marginBottom: 20,
         maxWidth: 520,
         fontFamily: "var(--font-dm-mono)",
+        cursor: "pointer",
+        transition: "border-color 0.2s, background 0.2s",
+        textAlign: "left",
+        width: "100%",
       }}
     >
       <span style={{ color: "#333", fontSize: 13 }}>&#x1F512;</span>
@@ -36,6 +54,11 @@ export default function URLBar({ activeCountry }: URLBarProps) {
       >
         {activeCountry === "all" ? t("common", "explore") : `country/${activeCountry}`}
       </span>
-    </div>
+      {copied && (
+        <span style={{ marginLeft: "auto", fontSize: 10, color: "#06D6A0" }}>
+          {t("share", "url_copied")}
+        </span>
+      )}
+    </button>
   );
 }

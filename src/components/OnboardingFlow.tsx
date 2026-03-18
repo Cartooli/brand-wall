@@ -139,6 +139,7 @@ export default function OnboardingFlow({
 
         {/* Header */}
         <div
+          key={step}
           style={{
             fontFamily: "var(--font-newsreader)",
             fontSize: "clamp(28px, 5vw, 42px)",
@@ -147,6 +148,7 @@ export default function OnboardingFlow({
             lineHeight: 1.1,
             marginBottom: 8,
             letterSpacing: "-0.03em",
+            animation: "fadeIn 0.25s ease",
           }}
         >
           {current.title}
@@ -156,11 +158,23 @@ export default function OnboardingFlow({
             fontFamily: "var(--font-dm-mono)",
             fontSize: 13,
             color: "#555",
-            marginBottom: 32,
+            marginBottom: current.type === "submit" ? 12 : 32,
           }}
         >
           {current.subtitle}
         </div>
+        {current.type === "submit" && (
+          <div
+            style={{
+              fontFamily: "var(--font-dm-mono)",
+              fontSize: 11,
+              color: "#444",
+              marginBottom: 32,
+            }}
+          >
+            {t("onboarding", "step3_good_company")}
+          </div>
+        )}
 
         {/* Body */}
         {current.type === "multi" && "options" in current && "field" in current && (

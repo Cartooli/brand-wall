@@ -209,7 +209,10 @@ export default function HomeContent({ initialCountry, initialBrand }: HomeConten
               fontSize: 13,
             }}
           >
-            {t("landing", "no_brands")}
+            <div>{t("landing", "no_brands")}</div>
+            <div style={{ marginTop: 8, fontSize: 12, color: "#444" }}>
+              {t("landing", "no_brands_or_first")}
+            </div>
           </div>
         ) : (
           <div

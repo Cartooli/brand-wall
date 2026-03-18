@@ -14,9 +14,10 @@ export default function LoadingFallback() {
           fontFamily: "var(--font-dm-mono)",
           fontSize: 12,
           color: "#444",
+          animation: "loadingPulse 1.5s ease-in-out infinite",
         }}
       >
-        {t("common", "loading")}
+        {t("common", "loading_building")}
       </div>
     </div>
   );
