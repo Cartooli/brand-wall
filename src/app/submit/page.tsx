@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { useLocale } from "@/lib/i18n/context";
 import { COUNTRIES } from "@/data/countries";
 import SubmitBrand from "@/components/SubmitBrand";
+import LoadingFallback from "@/components/LoadingFallback";
 
 function SubmitContent() {
   const { t } = useLocale();
@@ -69,24 +70,7 @@ function SubmitContent() {
 
 export default function SubmitPage() {
   return (
-    <Suspense
-      fallback={
-        <div
-          style={{
-            minHeight: "100vh",
-            background: "#050508",
-            color: "#666",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "var(--font-dm-mono)",
-            fontSize: 12,
-          }}
-        >
-          Loading…
-        </div>
-      }
-    >
+    <Suspense fallback={<LoadingFallback />}>
       <SubmitContent />
     </Suspense>
   );

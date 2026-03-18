@@ -11,7 +11,9 @@
     "back": "Back",
     "next": "Next",
     "url": "URL",
-    "the_brand_wall": "The Brand Wall"
+    "the_brand_wall": "The Brand Wall",
+    "loading": "Loading…",
+    "explore": "explore"
   },
   "landing": {
     "live": "Live",
@@ -83,9 +85,11 @@
   },
   "not_found": {
     "brand_message": "Brand not found.",
-    "explore_country": "Explore {country}"
+    "explore_country": "Explore {country}",
+    "page_title": "Not Found"
   },
   "removal": {
+    "placeholder_email": "you@company.com",
     "title": "Request removal from The Wall",
     "sla_copy": "We process verified requests within 7 business days. Your listing will be removed and the link will show that the brand is no longer listed.",
     "label_brand": "Brand name",

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { COUNTRIES } from "@/data/countries";
 import { useLocale } from "@/lib/i18n/context";
+import LoadingFallback from "@/components/LoadingFallback";
 
 const inputBaseStyle: React.CSSProperties = {
   padding: "10px 14px",
@@ -253,7 +254,7 @@ function RequestRemovalForm() {
                 id="email"
                 type="email"
                 required
-                placeholder="you@company.com"
+                placeholder={t("removal", "placeholder_email")}
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                 style={inputBaseStyle}
@@ -345,24 +346,7 @@ function RequestRemovalForm() {
 
 export default function RequestRemovalPage() {
   return (
-    <Suspense
-      fallback={
-        <div
-          style={{
-            minHeight: "100vh",
-            background: "#050508",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "var(--font-dm-mono)",
-            fontSize: 12,
-            color: "#444",
-          }}
-        >
-          Loading…
-        </div>
-      }
-    >
+    <Suspense fallback={<LoadingFallback />}>
       <RequestRemovalForm />
     </Suspense>
   );

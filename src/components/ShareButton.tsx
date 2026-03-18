@@ -32,7 +32,7 @@ export default function ShareButton({
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "The Brand Wall",
+          title: t("common", "the_brand_wall"),
           text,
           url,
         });

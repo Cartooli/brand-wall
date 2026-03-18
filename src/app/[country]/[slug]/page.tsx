@@ -5,6 +5,7 @@ import { getBrandByCountrySlug } from "@/data/slugs";
 import { COUNTRIES } from "@/data/countries";
 import HomeContent from "@/components/HomeContent";
 import BrandNotFound from "@/components/BrandNotFound";
+import LoadingFallback from "@/components/LoadingFallback";
 
 const VALID_COUNTRIES = new Set(Object.keys(COUNTRIES));
 
@@ -37,16 +38,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function BrandPageFallback() {
-  return (
-    <div style={{ minHeight: "100vh", background: "#050508", color: "#fff" }}>
-      <div style={{ padding: "32px 24px", maxWidth: 1200, margin: "0 auto", fontFamily: "var(--font-dm-mono)", fontSize: 12, color: "#444" }}>
-        Loading…
-      </div>
-    </div>
-  );
-}
-
 export default async function BrandPage({ params }: Props) {
   const { country, slug } = await params;
   const c = country.toLowerCase();
@@ -54,7 +45,7 @@ export default async function BrandPage({ params }: Props) {
   const brand = getBrandByCountrySlug(c, slug);
   if (!brand) return <BrandNotFound country={c} />;
   return (
-    <Suspense fallback={<BrandPageFallback />}>
+    <Suspense fallback={<LoadingFallback />}>
       <HomeContent initialCountry={c} initialBrand={brand} />
     </Suspense>
   );

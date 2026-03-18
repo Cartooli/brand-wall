@@ -11,7 +11,9 @@
     "back": "უკან",
     "next": "შემდეგი",
     "url": "URL",
-    "the_brand_wall": "The Brand Wall"
+    "the_brand_wall": "The Brand Wall",
+    "loading": "იტვირთება…",
+    "explore": "გამოკვლევა"
   },
   "landing": {
     "live": "პირდაპირ",
@@ -83,9 +85,11 @@
   },
   "not_found": {
     "brand_message": "ბრენდი ვერ მოიძებნა.",
-    "explore_country": "გამოიკვლიეთ {country}"
+    "explore_country": "გამოიკვლიეთ {country}",
+    "page_title": "ვერ მოიძებნა"
   },
   "removal": {
+    "placeholder_email": "თქვენ@მაგალითი.com",
     "title": "მოთხოვნა კედლიდან წაშლის შესახებ",
     "sla_copy": "გადამოწმებულ მოთხოვნებს 7 სამუშაო დღეში ვამუშავებთ. ჩანაწერი წაიშლება და ბმული აჩვენებს, რომ ბრენდი აღარ არის სიაში.",
     "label_brand": "ბრენდის სახელი",

@@ -1,12 +1,14 @@
 "use client";
 
 import { COUNTRIES } from "@/data/countries";
+import { useLocale } from "@/lib/i18n/context";
 
 interface URLBarProps {
   activeCountry: string;
 }
 
 export default function URLBar({ activeCountry }: URLBarProps) {
+  const { t } = useLocale();
   return (
     <div
       style={{
@@ -32,7 +34,7 @@ export default function URLBar({ activeCountry }: URLBarProps) {
           fontWeight: 600,
         }}
       >
-        {activeCountry === "all" ? "explore" : `country/${activeCountry}`}
+        {activeCountry === "all" ? t("common", "explore") : `country/${activeCountry}`}
       </span>
     </div>
   );
