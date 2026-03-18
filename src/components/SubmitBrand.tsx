@@ -4,6 +4,7 @@ import { useState } from "react";
 import { COUNTRIES } from "@/data/countries";
 import { CATEGORIES } from "@/data/categories";
 import { useLocale } from "@/lib/i18n/context";
+import ShareButton from "@/components/ShareButton";
 
 const inputBaseStyle: React.CSSProperties = {
   padding: "10px 14px",
@@ -43,6 +44,14 @@ export default function SubmitBrand() {
       >
         <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: 12, color: "#E4002B" }}>
           &#10022; {form.name} {t("submit", "submitted_for_curation")}
+        </div>
+        <div style={{ marginTop: 14, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 8 }}>
+          <ShareButton
+            label={t("share", "share_submitted")}
+            text={t("share", "share_submitted_text")}
+            url="https://www.brandwall.online"
+            variant="compact"
+          />
         </div>
       </div>
     );

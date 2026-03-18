@@ -27,19 +27,42 @@ const notoGeorgian = Noto_Sans_Georgian({
 
 const canonicalBase = "https://www.brandwall.online";
 
+const title = "The Brand Wall";
+const description =
+  "A pixel mosaic of indie brands from 11 countries. Every block is a brand. Every path is a country. Explore Georgia first — then the world.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(canonicalBase),
-  title: "The Brand Wall",
-  description: "A modernized Million Dollar Homepage. Every pixel block is an indie brand. Every URL path is a country.",
+  title,
+  description,
   alternates: {
     canonical: canonicalBase + "/",
   },
   openGraph: {
+    type: "website",
     url: canonicalBase + "/",
-    siteName: "The Brand Wall",
+    siteName: title,
+    title,
+    description,
+    locale: "en_GB",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "The Brand Wall — indie brands from 11 countries. Featured: Georgia.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title,
+    description,
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

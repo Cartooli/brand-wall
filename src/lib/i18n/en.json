@@ -60,7 +60,18 @@
     "tier_iconic": "Iconic",
     "tier_rising": "Rising",
     "tier_indie": "Indie",
-    "tier_micro": "Micro"
+    "tier_micro": "Micro",
+    "share_brand": "Share this brand"
+  },
+  "share": {
+    "share": "Share",
+    "copy_link": "Copy link",
+    "link_copied": "Link copied",
+    "share_georgia": "Share Georgia's wall",
+    "share_georgia_text": "Explore 24+ indie brands from Georgia 🇬🇪 — from Spribe to Binekhi — on The Brand Wall.",
+    "share_brand_text": "Check out {name} on The Brand Wall — indie brands from around the world.",
+    "share_submitted": "Share that you submitted",
+    "share_submitted_text": "I just submitted a brand to The Brand Wall — the pixel mosaic of indie brands from 11 countries. Add yours:"
   },
   "stats": {
     "brands": "Brands",

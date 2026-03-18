@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Brand, BRANDS, SIZE_MAP } from "@/data/brands";
 import { COUNTRIES } from "@/data/countries";
 import { useLocale } from "@/lib/i18n/context";
@@ -15,15 +16,26 @@ import URLBar from "@/components/URLBar";
 import SubmitBrand from "@/components/SubmitBrand";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
+const VALID_COUNTRIES = new Set(Object.keys(COUNTRIES));
+
 type BrandWithCountry = Brand & { country: string };
 
-export default function Home() {
+function HomeContent() {
   const { t } = useLocale();
+  const searchParams = useSearchParams();
   const [showOnboarding, setShowOnboarding] = useState(true);
   const [activeCountry, setActiveCountry] = useState("all");
   const [activeCat, setActiveCat] = useState("all");
   const [selectedBrand, setSelectedBrand] = useState<BrandWithCountry | null>(null);
   const [search, setSearch] = useState("");
+
+  // Deep-link: ?country=georgia (or other) opens with that country selected (referral/share links)
+  useEffect(() => {
+    const country = searchParams.get("country");
+    if (country && VALID_COUNTRIES.has(country)) {
+      setActiveCountry(country);
+    }
+  }, [searchParams]);
 
   const handleOnboardingComplete = (answers: OnboardingAnswers) => {
     setShowOnboarding(false);
@@ -206,5 +218,23 @@ export default function Home() {
 
       <BrandModal brand={selectedBrand} onClose={() => setSelectedBrand(null)} />
     </div>
+  );
+}
+
+function HomeFallback() {
+  return (
+    <div style={{ minHeight: "100vh", background: "#050508", color: "#fff" }}>
+      <div style={{ padding: "32px 24px", maxWidth: 1200, margin: "0 auto", fontFamily: "var(--font-dm-mono)", fontSize: 12, color: "#444" }}>
+        Loading…
+      </div>
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<HomeFallback />}>
+      <HomeContent />
+    </Suspense>
   );
 }

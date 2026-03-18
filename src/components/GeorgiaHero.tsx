@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "@/lib/i18n/context";
+import ShareButton from "@/components/ShareButton";
 
 interface GeorgiaHeroProps {
   onExplore: () => void;
@@ -121,26 +122,33 @@ export default function GeorgiaHero({ onExplore }: GeorgiaHeroProps) {
           </div>
         </div>
 
-        <button
-          onClick={onExplore}
-          style={{
-            marginTop: 20,
-            padding: "11px 24px",
-            borderRadius: 8,
-            border: "1px solid #E4002B",
-            background: "#E4002B18",
-            color: "#E4002B",
-            fontFamily: "var(--font-dm-mono)",
-            fontSize: 11,
-            fontWeight: 600,
-            cursor: "pointer",
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
-            transition: "all 0.2s",
-          }}
-        >
-          {t("georgia", "explore_cta")} &rarr;
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 20, flexWrap: "wrap" }}>
+          <button
+            onClick={onExplore}
+            style={{
+              padding: "11px 24px",
+              borderRadius: 8,
+              border: "1px solid #E4002B",
+              background: "#E4002B18",
+              color: "#E4002B",
+              fontFamily: "var(--font-dm-mono)",
+              fontSize: 11,
+              fontWeight: 600,
+              cursor: "pointer",
+              textTransform: "uppercase",
+              letterSpacing: "0.06em",
+              transition: "all 0.2s",
+            }}
+          >
+            {t("georgia", "explore_cta")} &rarr;
+          </button>
+          <ShareButton
+            label={t("share", "share_georgia")}
+            text={t("share", "share_georgia_text")}
+            url="https://www.brandwall.online/?country=georgia"
+            variant="compact"
+          />
+        </div>
       </div>
     </div>
   );

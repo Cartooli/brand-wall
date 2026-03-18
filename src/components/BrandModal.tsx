@@ -4,6 +4,7 @@ import { Brand } from "@/data/brands";
 import { COUNTRIES } from "@/data/countries";
 import { generateColor } from "@/data/utils";
 import { useLocale } from "@/lib/i18n/context";
+import ShareButton from "@/components/ShareButton";
 
 function Tag({ label, color }: { label: string; color: string }) {
   return (
@@ -164,6 +165,15 @@ export default function BrandModal({ brand, onClose }: BrandModalProps) {
           >
             {t("modal", "visit")} {brand.name} &rarr;
           </a>
+
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
+            <ShareButton
+              label={t("modal", "share_brand")}
+              text={t("share", "share_brand_text").replace("{name}", brand.name)}
+              url={`https://www.brandwall.online/?country=${brand.country}`}
+              variant="compact"
+            />
+          </div>
 
           <div
             style={{

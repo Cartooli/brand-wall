@@ -60,7 +60,18 @@
     "tier_iconic": "ლეგენდა",
     "tier_rising": "მზარდი",
     "tier_indie": "ინდი",
-    "tier_micro": "მიკრო"
+    "tier_micro": "მიკრო",
+    "share_brand": "გააზიარეთ ბრენდი"
+  },
+  "share": {
+    "share": "გაზიარება",
+    "copy_link": "ბმულის კოპირება",
+    "link_copied": "ბმული კოპირებულია",
+    "share_georgia": "გააზიარეთ საქართველოს კედელი",
+    "share_georgia_text": "გაეცანით 24+ ინდი ბრენდს საქართველოდან 🇬🇪 — Spribe-დან Binekhi-მდე — The Brand Wall-ზე.",
+    "share_brand_text": "იხილეთ {name} The Brand Wall-ზე — ინდი ბრენდები მთელი მსოფლიოდან.",
+    "share_submitted": "გააზიარეთ, რომ გამოგზავნეთ",
+    "share_submitted_text": "ახლახან გავგზავნე ბრენდი The Brand Wall-ზე — 11 ქვეყნის ინდი ბრენდების პიქსელური მოზაიკა. დაამატეთ თქვენიც:"
   },
   "stats": {
     "brands": "ბრენდები",
