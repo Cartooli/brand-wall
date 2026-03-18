@@ -45,7 +45,7 @@
     "stat_brands": "Brands",
     "stat_vc": "VC 2024",
     "stat_startups": "Startups",
-    "explore_cta": "Explore /country/georgia"
+    "explore_cta": "Explore Georgia"
   },
   "submit": {
     "submitted_for_curation": "submitted for curation",
@@ -65,6 +65,7 @@
   "stats": {
     "brands": "Brands",
     "categories": "Categories",
+    "country": "Country",
     "countries": "Countries",
     "pixels": "Pixels"
   },

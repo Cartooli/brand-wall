@@ -27,7 +27,10 @@ export default function Stats({ brands, country }: StatsProps) {
       {[
         { label: t("stats", "brands"), value: totalBrands },
         { label: t("stats", "categories"), value: categories },
-        { label: t("stats", "countries"), value: countries },
+        {
+          label: countries === 1 ? t("stats", "country") : t("stats", "countries"),
+          value: countries,
+        },
         { label: t("stats", "pixels"), value: (totalBrands * 247).toLocaleString() },
       ].map((s) => (
         <div key={s.label}>
